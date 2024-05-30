@@ -1,6 +1,6 @@
 # MongoDB w/ Native Queries - May 2024 Community Call Demo
 
-This demo provides a practical example of building an Ecommerce App using Hasura's Data Delivery Network (DDN) with a [supergraph](https://supergraph.io) architecture.
+This demo provides a practical example of Native Queries with MongoDB using Hasura's Data Delivery Network (DDN) with a [supergraph](https://supergraph.io) architecture.
 
 ## Instructions
 
