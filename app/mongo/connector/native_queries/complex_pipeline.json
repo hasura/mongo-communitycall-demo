@@ -89,7 +89,7 @@
           "$dateSubtract": {
             "startDate": "$$NOW",
             "unit": "month",
-            "amount": 1
+            "amount": 6
           }
         },
         "orderDateConverted": {
