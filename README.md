@@ -4,6 +4,7 @@ This demo provides a practical example of building an Ecommerce App using Hasura
 
 ## Instructions
 
+- [Import data from data folder into your mongodb](https://www.mongodb.com/docs/compass/current/import-export/)
 - [Install Hasura CLI](https://hasura.io/docs/3.0/cli/installation)
 - [Login to Hasura CLI](https://hasura.io/docs/3.0/cli/commands/login)
 - [Create Project](https://hasura.io/docs/3.0/cli/commands/create-project)
