@@ -1,0 +1,99 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Products
+  fields:
+    - name: id
+      type: String
+    - name: name
+      type: String
+    - name: price
+      type: Int
+  graphql:
+    typeName: App_Products
+    inputTypeName: App_ProductsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: products
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        name:
+          column:
+            name: name
+        price:
+          column:
+            name: price
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Products
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - name
+          - price
+
+---
+kind: ObjectBooleanExpressionType
+version: v1
+definition:
+  name: ProductsBoolExp
+  objectType: Products
+  dataConnectorName: mongo
+  dataConnectorObjectType: products
+  comparableFields:
+    - fieldName: id
+      operators:
+        enableAll: true
+    - fieldName: name
+      operators:
+        enableAll: true
+    - fieldName: price
+      operators:
+        enableAll: true
+  graphql:
+    typeName: App_ProductsBoolExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: Products
+  objectType: Products
+  source:
+    dataConnectorName: mongo
+    collection: products
+  filterExpressionType: ProductsBoolExp
+  orderableFields:
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: name
+      orderByDirections:
+        enableAll: true
+    - fieldName: price
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: app_products
+    selectUniques: []
+    orderByExpressionType: App_ProductsOrderBy
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Products
+  permissions:
+    - role: admin
+      select:
+        filter: null
+

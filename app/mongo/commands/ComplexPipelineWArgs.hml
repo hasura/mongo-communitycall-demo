@@ -1,0 +1,33 @@
+---
+kind: Command
+version: v1
+definition:
+  name: ComplexPipelineWArgs
+  outputType: CustomerSpendingWTopProduct!
+  arguments:
+    - name: customersLimit
+      type: Int!
+    - name: monthsAgo
+      type: Int!
+    - name: productsLimit
+      type: Int!
+  source:
+    dataConnectorName: mongo
+    dataConnectorCommand:
+      function: ComplexPipelineWArgs
+  graphql:
+    rootFieldName: app_complexPipelineWArgs
+    rootFieldKind: Query
+  description: Calculate the total amount spent by each customer in the last X
+    months, list the top X products by revenue, and include customer details and
+    order counts.
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: ComplexPipelineWArgs
+  permissions:
+    - role: admin
+      allowExecution: true
+

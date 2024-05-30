@@ -1,0 +1,527 @@
+[
+    {
+        "_id": "d2bb0fd6-e2ee-4ccd-800c-68bfcf07c352",
+        "name": "Laptop",
+        "price": 3800
+    },
+    {
+        "_id": "4e5d8ef9-9bd6-4124-a3bb-7bfaa06b287a",
+        "name": "Smartphone",
+        "price": 4945
+    },
+    {
+        "_id": "a337712a-a75f-4831-8ab2-be404b3c82e2",
+        "name": "Tablet",
+        "price": 677
+    },
+    {
+        "_id": "26705006-94d2-4076-97fa-021e6866b815",
+        "name": "Headphones",
+        "price": 2311
+    },
+    {
+        "_id": "9df91451-9496-41ff-b289-9923463854d3",
+        "name": "Smartwatch",
+        "price": 2133
+    },
+    {
+        "_id": "7878a2f7-c30f-48b6-8999-2e27e176760a",
+        "name": "Camera",
+        "price": 4729
+    },
+    {
+        "_id": "1ba4e670-6587-4e28-9597-32cf1ca6b701",
+        "name": "Monitor",
+        "price": 3925
+    },
+    {
+        "_id": "1b68e611-46f3-4342-9d7a-cdb2b2d9f6c0",
+        "name": "Keyboard",
+        "price": 1024
+    },
+    {
+        "_id": "cd1b62c6-9e0c-44bd-b27c-67b2ed4e585e",
+        "name": "Mouse",
+        "price": 4651
+    },
+    {
+        "_id": "4ab8731b-5dbb-406f-8d8f-7843821ccea9",
+        "name": "Printer",
+        "price": 2007
+    },
+    {
+        "_id": "ae4960a3-a904-4f84-9183-15d60fc135f6",
+        "name": "Speaker",
+        "price": 2830
+    },
+    {
+        "_id": "54b5c12c-0604-4313-9acf-e77e35fb99db",
+        "name": "Router",
+        "price": 2670
+    },
+    {
+        "_id": "16c3ce1f-80cd-48ab-943a-abce9ef9fe0a",
+        "name": "Hard Drive",
+        "price": 661
+    },
+    {
+        "_id": "0b0af9d5-cea8-48cd-b97b-5ba87294ff50",
+        "name": "SSD",
+        "price": 4695
+    },
+    {
+        "_id": "11134888-7a8f-47ca-82fe-357c3c62ce81",
+        "name": "RAM",
+        "price": 2925
+    },
+    {
+        "_id": "effd34c0-0b0d-45d4-8c88-078527caa6d0",
+        "name": "Graphics Card",
+        "price": 1208
+    },
+    {
+        "_id": "5b7cb5da-c8d8-4b6e-89d4-ad4ea12c4541",
+        "name": "Motherboard",
+        "price": 1569
+    },
+    {
+        "_id": "3123b21b-2198-4a0f-a476-66fd4a676fd1",
+        "name": "CPU",
+        "price": 252
+    },
+    {
+        "_id": "fd5634eb-44d3-43f9-bdc1-dc317d387a8f",
+        "name": "Power Supply",
+        "price": 3114
+    },
+    {
+        "_id": "aca011fa-daa9-445c-9973-95c238b5968f",
+        "name": "Case",
+        "price": 2582
+    },
+    {
+        "_id": "dad9d76b-6253-4278-9b7b-00f119a423a7",
+        "name": "Webcam",
+        "price": 580
+    },
+    {
+        "_id": "7f1f3175-65a5-45df-b195-f5df964b6390",
+        "name": "Microphone",
+        "price": 3358
+    },
+    {
+        "_id": "08f5d9a1-1b07-433a-a1cd-4ae4060ed40b",
+        "name": "Drone",
+        "price": 1471
+    },
+    {
+        "_id": "9227694b-44d6-4574-b2cd-195e0c6765de",
+        "name": "Smart Light",
+        "price": 129
+    },
+    {
+        "_id": "7742c26e-9cd8-461b-af2c-63f383269c26",
+        "name": "Thermostat",
+        "price": 4132
+    },
+    {
+        "_id": "22960b6d-f04b-4691-922a-8f86f74283bd",
+        "name": "Fitness Tracker",
+        "price": 258
+    },
+    {
+        "_id": "845a0d25-6a76-4fe8-b1f3-3538fd340310",
+        "name": "Gaming Console",
+        "price": 4453
+    },
+    {
+        "_id": "5c979246-d1b3-4d0f-910f-4161e138542e",
+        "name": "VR Headset",
+        "price": 1322
+    },
+    {
+        "_id": "3157b345-9848-47aa-8664-e567be0371b9",
+        "name": "E-Reader",
+        "price": 3784
+    },
+    {
+        "_id": "0e03ece6-7066-46fd-af79-9ad9d4f8c051",
+        "name": "Smart Home Hub",
+        "price": 4319
+    },
+    {
+        "_id": "2f30df7b-c3a2-434b-8011-32e492de44d4",
+        "name": "Bluetooth Earbuds",
+        "price": 4511
+    },
+    {
+        "_id": "05430051-2ffc-4b24-8850-d53740f7c0d5",
+        "name": "Smart TV",
+        "price": 4969
+    },
+    {
+        "_id": "628f0a88-37a5-4e7f-8fef-a591aeb096e2",
+        "name": "External Battery",
+        "price": 3838
+    },
+    {
+        "_id": "4729ded1-a549-4396-b4a9-70b57c15fab5",
+        "name": "WiFi Extender",
+        "price": 1178
+    },
+    {
+        "_id": "dc850259-d54e-4dc5-b0f5-7b21f5508220",
+        "name": "Network Switch",
+        "price": 3438
+    },
+    {
+        "_id": "4b0a2552-32b6-4cc3-ab80-01ca8f2ec329",
+        "name": "NAS",
+        "price": 1688
+    },
+    {
+        "_id": "2df807ea-97ef-4b5a-82c1-b80cdb11ddbe",
+        "name": "Soundbar",
+        "price": 1584
+    },
+    {
+        "_id": "f8010148-97b8-4981-9212-d530ed4ebb87",
+        "name": "Projector",
+        "price": 2352
+    },
+    {
+        "_id": "b89812c3-df02-43d0-b33f-c7a52a167d8e",
+        "name": "Electric Scooter",
+        "price": 416
+    },
+    {
+        "_id": "d400a454-34cf-41ea-8b46-ee812ff21536",
+        "name": "Smart Doorbell",
+        "price": 1298
+    },
+    {
+        "_id": "1b069570-ee13-4b98-b970-e7d889ae7189",
+        "name": "Smart Lock",
+        "price": 3672
+    },
+    {
+        "_id": "7e776028-25be-4b7f-9d07-28726dae6475",
+        "name": "Dash Cam",
+        "price": 4405
+    },
+    {
+        "_id": "42db7191-e5de-450b-a709-ea282fc86eaf",
+        "name": "3D Printer",
+        "price": 197
+    },
+    {
+        "_id": "a100ae5c-075c-4534-8da5-50d612f63f4b",
+        "name": "Portable SSD",
+        "price": 4057
+    },
+    {
+        "_id": "aaff77f9-b7a9-44d8-9b2c-783043d4a6c3",
+        "name": "Portable HDD",
+        "price": 3558
+    },
+    {
+        "_id": "59122f3a-550a-472a-9516-af1e2d4b32cb",
+        "name": "Action Camera",
+        "price": 2780
+    },
+    {
+        "_id": "22141510-56c4-4cf2-a3e4-622063eb9d95",
+        "name": "Streaming Device",
+        "price": 2445
+    },
+    {
+        "_id": "325d5f7b-fe20-42f0-b67e-61474de0b2b7",
+        "name": "Smart Glasses",
+        "price": 2243
+    },
+    {
+        "_id": "f62f2caf-6157-4595-972c-9fdc02ebb460",
+        "name": "Robot Vacuum",
+        "price": 834
+    },
+    {
+        "_id": "5ced75af-e95d-42cf-a139-9c01c516c978",
+        "name": "Smart Plug",
+        "price": 158
+    },
+    {
+        "_id": "bb070d26-5567-461e-8894-ae6437f66ab8",
+        "name": "Smart Scale",
+        "price": 4100
+    },
+    {
+        "_id": "5fefcf9d-0ad0-4b94-853d-af2c38b5ba41",
+        "name": "Home Security Camera",
+        "price": 4810
+    },
+    {
+        "_id": "cc899c7e-f4f0-4cb0-b027-70d7599af412",
+        "name": "Electric Toothbrush",
+        "price": 2778
+    },
+    {
+        "_id": "21f0a3b8-475f-47ad-af04-f33724843d0b",
+        "name": "Sleep Tracker",
+        "price": 3704
+    },
+    {
+        "_id": "20d68173-6dd5-4d8e-8ee5-c1c73da4a90b",
+        "name": "Gaming Mouse",
+        "price": 1648
+    },
+    {
+        "_id": "f09d1c73-1b28-421c-be1d-47a9a1428b84",
+        "name": "Mechanical Keyboard",
+        "price": 4816
+    },
+    {
+        "_id": "7476d25c-da81-4d98-996f-e6c568e58662",
+        "name": "Digital Frame",
+        "price": 1910
+    },
+    {
+        "_id": "523d0f24-829d-4583-a2bb-eedd55b17ec2",
+        "name": "Air Purifier",
+        "price": 3493
+    },
+    {
+        "_id": "4188dd57-badf-423e-837e-8fa5298036e8",
+        "name": "Water Purifier",
+        "price": 2517
+    },
+    {
+        "_id": "afa2156c-2875-4986-ad97-ff39077f949e",
+        "name": "Bluetooth Speaker",
+        "price": 4324
+    },
+    {
+        "_id": "5fae2d57-67d1-4f48-9dfc-5819220d40a8",
+        "name": "Electric Bike",
+        "price": 3278
+    },
+    {
+        "_id": "208e324b-c1a4-4715-81c7-9647eef7115d",
+        "name": "Home Assistant Device",
+        "price": 3649
+    },
+    {
+        "_id": "8d7b7964-abdf-4457-b5ff-a2c282ba3030",
+        "name": "Portable Projector",
+        "price": 834
+    },
+    {
+        "_id": "aa3da44c-cda4-46bd-a14c-f11240a0c941",
+        "name": "Electric Kettle",
+        "price": 4909
+    },
+    {
+        "_id": "5cebc990-35db-42b0-ac9c-4f6fcd6e8315",
+        "name": "Electric Grill",
+        "price": 4444
+    },
+    {
+        "_id": "2aa6d89c-38a9-4bab-bb4e-7c635e7bd834",
+        "name": "Electric Skillet",
+        "price": 4085
+    },
+    {
+        "_id": "720ebbdc-d49c-4240-80d0-e346305b562a",
+        "name": "Electric Mixer",
+        "price": 1446
+    },
+    {
+        "_id": "7b4f8a71-4e46-418c-a571-c4160d4f6e0c",
+        "name": "Coffee Maker",
+        "price": 1946
+    },
+    {
+        "_id": "9de7028c-230c-44f2-af15-487de54e6217",
+        "name": "Sous Vide",
+        "price": 3165
+    },
+    {
+        "_id": "1cb3e1ea-344c-432b-8059-362f6aa0b217",
+        "name": "Toaster",
+        "price": 1507
+    },
+    {
+        "_id": "387d208e-3805-4e40-8539-5bf57f9afcfa",
+        "name": "Electric Shaver",
+        "price": 4236
+    },
+    {
+        "_id": "409fd5a9-856c-43c6-9e70-2e9e9a77c51f",
+        "name": "Hair Dryer",
+        "price": 4150
+    },
+    {
+        "_id": "6b60e32d-df05-43bc-ab45-f4519f1ac8ca",
+        "name": "Electric Iron",
+        "price": 1256
+    },
+    {
+        "_id": "32530871-2fbc-4391-85b4-4e08cced9a16",
+        "name": "Water Bottle",
+        "price": 3466
+    },
+    {
+        "_id": "49096eea-e332-4e7a-a898-a54479e9022e",
+        "name": "Fitness Watch",
+        "price": 1920
+    },
+    {
+        "_id": "1aca9f1b-5023-402c-a96f-4d7783b58cc9",
+        "name": "Clock Radio",
+        "price": 1567
+    },
+    {
+        "_id": "81bebdd1-9d6b-403d-9392-bdb5ba17db37",
+        "name": "Smart Clock",
+        "price": 3640
+    },
+    {
+        "_id": "619eb89d-bb49-4e05-bd81-f15651c321ab",
+        "name": "Radio",
+        "price": 755
+    },
+    {
+        "_id": "bae89ec3-67f6-4c06-801e-b83292a88b2d",
+        "name": "Bluetooth Receiver",
+        "price": 4383
+    },
+    {
+        "_id": "80b348da-8eac-422b-9a42-b975f32c57e0",
+        "name": "Bluetooth Transmitter",
+        "price": 460
+    },
+    {
+        "_id": "a11eada5-d51e-4fcc-a5b1-d6abd9eeb46c",
+        "name": "Electric Lawn Mower",
+        "price": 3159
+    },
+    {
+        "_id": "3f31ee75-d4f5-4ef6-8092-bc303e7d9ddb",
+        "name": "Electric Hedge Trimmer",
+        "price": 4085
+    },
+    {
+        "_id": "c56a8070-6308-41b2-adc5-25a9b63af7c9",
+        "name": "Electric Chainsaw",
+        "price": 1033
+    },
+    {
+        "_id": "e3825e93-3d57-427d-adc4-32c1617e11af",
+        "name": "Electric Pressure Washer",
+        "price": 2088
+    },
+    {
+        "_id": "75dadf33-74a3-4196-83ae-32a8c5635bba",
+        "name": "Electric Snow Blower",
+        "price": 1177
+    },
+    {
+        "_id": "ef73ce3a-17b9-425a-bb36-89d85d51cb35",
+        "name": "Electric Leaf Blower",
+        "price": 2520
+    },
+    {
+        "_id": "a4fccb1d-f355-4f0a-bd3a-e0bb3312267b",
+        "name": "Electric Lawnmower",
+        "price": 1288
+    },
+    {
+        "_id": "f31bc68d-9f7a-4ad4-9991-38c9d40f0f85",
+        "name": "Electric Garden Tools",
+        "price": 3181
+    },
+    {
+        "_id": "70b4c432-069b-41d9-9144-7c85397ee6e2",
+        "name": "Electric Bicycle",
+        "price": 3283
+    },
+    {
+        "_id": "84382e0e-a85f-4743-b00d-b4933dd48c93",
+        "name": "Electric Treadmill",
+        "price": 4492
+    },
+    {
+        "_id": "b54dc019-1412-44b6-846e-fe39eb349a5b",
+        "name": "Electric Elliptical",
+        "price": 4173
+    },
+    {
+        "_id": "0c352e29-48d0-4461-be2a-bcc7f151b46d",
+        "name": "Rowing Machine",
+        "price": 3937
+    },
+    {
+        "_id": "ccf88252-5481-4f90-ace6-0e54cb9bce6a",
+        "name": "Exercise Bike",
+        "price": 4566
+    },
+    {
+        "_id": "487d985a-2b33-428c-8753-1e5e4448b166",
+        "name": "Smart Weights",
+        "price": 1456
+    },
+    {
+        "_id": "b9fdab4e-cd0a-4095-adaa-304c49a2ddff",
+        "name": "Resistance Bands",
+        "price": 1668
+    },
+    {
+        "_id": "3c19cea0-f31e-45ef-8ff0-2d62e378f4db",
+        "name": "Yoga Mat",
+        "price": 3937
+    },
+    {
+        "_id": "39b3a238-bc47-4dfb-808e-133d22551816",
+        "name": "Smart Towel",
+        "price": 1047
+    },
+    {
+        "_id": "3c03074a-732b-4474-b17f-103768cf0400",
+        "name": "Smart Water Bottle",
+        "price": 4884
+    },
+    {
+        "_id": "b0d803af-ad7b-4ce0-9c05-8d358a74f492",
+        "name": "Desktop Computer",
+        "price": 3738
+    },
+    {
+        "_id": "3580288b-54ac-43ac-8257-991037a14e9a",
+        "name": "Mini PC",
+        "price": 1234
+    },
+    {
+        "_id": "16c05132-905c-4fe2-91ba-e33c5f08e0aa",
+        "name": "All-in-One Computer",
+        "price": 371
+    },
+    {
+        "_id": "97b757bf-e705-4cba-87f6-f89b8aafe834",
+        "name": "Server",
+        "price": 3767
+    },
+    {
+        "_id": "3092234c-6e5d-4ba3-95f0-fd172db181bb",
+        "name": "Workstation",
+        "price": 2280
+    },
+    {
+        "_id": "8b09b6ee-8f32-4b87-9483-c3150220afd8",
+        "name": "Ultrabook",
+        "price": 454
+    },
+    {
+        "_id": "a359606e-6c2e-4ef8-8e37-a11f3b510b31",
+        "name": "Convertible Laptop",
+        "price": 4051
+    }
+]

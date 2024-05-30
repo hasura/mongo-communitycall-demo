@@ -1,0 +1,27 @@
+{
+  "name": "SimplePipeline",
+  "representation": "collection",
+  "inputCollection": "orders",
+  "description": "Calculate the total quantity of products ordered by each customer",
+  "arguments": {},
+  "resultDocumentType": "SimplePipeline",
+  "objectTypes": {
+    "SimplePipeline": {
+      "fields": {
+        "_id": {
+          "type": {
+            "scalar": "string"
+          }
+        },
+        "totalQuantity": {
+          "type": {
+            "scalar": "int"
+          }
+        }
+      }
+    }
+  },
+  "pipeline": [
+    { "$group": { "_id": "$customerId", "totalQuantity": { "$sum": "$quantity" } } }
+  ]
+}

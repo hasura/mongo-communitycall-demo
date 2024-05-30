@@ -1,0 +1,49 @@
+{
+  "name": "orders",
+  "collections": {
+    "orders": {
+      "type": "orders"
+    }
+  },
+  "objectTypes": {
+    "orders": {
+      "fields": {
+        "_id": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "customerId": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "orderDate": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "productId": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "quantity": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        }
+      }
+    }
+  }
+}

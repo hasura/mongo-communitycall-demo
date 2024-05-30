@@ -1,0 +1,123 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Customers
+  fields:
+    - name: id
+      type: String
+    - name: age
+      type: Int
+    - name: joinDate
+      type: String
+    - name: location
+      type: String
+    - name: name
+      type: String
+  graphql:
+    typeName: App_Customers
+    inputTypeName: App_CustomersInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: customers
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        age:
+          column:
+            name: age
+        joinDate:
+          column:
+            name: joinDate
+        location:
+          column:
+            name: location
+        name:
+          column:
+            name: name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Customers
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - age
+          - joinDate
+          - location
+          - name
+
+---
+kind: ObjectBooleanExpressionType
+version: v1
+definition:
+  name: CustomersBoolExp
+  objectType: Customers
+  dataConnectorName: mongo
+  dataConnectorObjectType: customers
+  comparableFields:
+    - fieldName: id
+      operators:
+        enableAll: true
+    - fieldName: age
+      operators:
+        enableAll: true
+    - fieldName: joinDate
+      operators:
+        enableAll: true
+    - fieldName: location
+      operators:
+        enableAll: true
+    - fieldName: name
+      operators:
+        enableAll: true
+  graphql:
+    typeName: App_CustomersBoolExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: Customers
+  objectType: Customers
+  source:
+    dataConnectorName: mongo
+    collection: customers
+  filterExpressionType: CustomersBoolExp
+  orderableFields:
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: age
+      orderByDirections:
+        enableAll: true
+    - fieldName: joinDate
+      orderByDirections:
+        enableAll: true
+    - fieldName: location
+      orderByDirections:
+        enableAll: true
+    - fieldName: name
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: app_customers
+    selectUniques: []
+    orderByExpressionType: App_CustomersOrderBy
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Customers
+  permissions:
+    - role: admin
+      select:
+        filter: null
+

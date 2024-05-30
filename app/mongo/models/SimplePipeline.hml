@@ -1,0 +1,88 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: SimplePipeline
+  fields:
+    - name: id
+      type: String!
+    - name: totalQuantity
+      type: Int!
+  graphql:
+    typeName: App_SimplePipeline
+    inputTypeName: App_SimplePipelineInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: SimplePipeline
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        totalQuantity:
+          column:
+            name: totalQuantity
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: SimplePipeline
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - totalQuantity
+
+---
+kind: ObjectBooleanExpressionType
+version: v1
+definition:
+  name: SimplePipelineBoolExp
+  objectType: SimplePipeline
+  dataConnectorName: mongo
+  dataConnectorObjectType: SimplePipeline
+  comparableFields:
+    - fieldName: id
+      operators:
+        enableAll: true
+    - fieldName: totalQuantity
+      operators:
+        enableAll: true
+  graphql:
+    typeName: App_SimplePipelineBoolExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: SimplePipeline
+  objectType: SimplePipeline
+  source:
+    dataConnectorName: mongo
+    collection: SimplePipeline
+  filterExpressionType: SimplePipelineBoolExp
+  orderableFields:
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: totalQuantity
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: app_simplePipeline
+    selectUniques: []
+    orderByExpressionType: App_SimplePipelineOrderBy
+  description: Calculate the total quantity of products ordered by each customer
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: SimplePipeline
+  permissions:
+    - role: admin
+      select:
+        filter: null
+

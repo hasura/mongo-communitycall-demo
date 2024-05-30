@@ -1,0 +1,162 @@
+{
+  "name": "ComplexPipelineWArgs",
+  "representation": "function",
+  "inputCollection": "orders",
+  "description": "Calculate the total amount spent by each customer in the last X months, list the top X products by revenue, and include customer details and order counts.",
+  "arguments": {
+    "monthsAgo": {
+      "type": {
+        "scalar": "int"
+      }
+    },
+    "customersLimit": {
+      "type": {
+        "scalar": "int"
+      }
+    },
+    "productsLimit": {
+      "type": {
+        "scalar": "int"
+      }
+    }
+  },
+  "resultDocumentType": "ComplexPipeline",
+  "pipeline": [
+    {
+      "$addFields": {
+        "dateXMonthsAgo": {
+          "$dateSubtract": {
+            "startDate": "$$NOW",
+            "unit": "month",
+            "amount": "{{monthsAgo}}"
+          }
+        },
+        "orderDateConverted": {
+          "$dateFromString": {
+            "dateString": "$orderDate"
+          }
+        }
+      }
+    },
+    {
+      "$match": {
+        "$expr": {
+          "$gte": [
+            "$orderDateConverted",
+            "$dateXMonthsAgo"
+          ]
+        }
+      }
+    },
+    {
+      "$lookup": {
+        "from": "customers",
+        "localField": "customerId",
+        "foreignField": "_id",
+        "as": "customerDetails"
+      }
+    },
+    {
+      "$unwind": "$customerDetails"
+    },
+    {
+      "$lookup": {
+        "from": "products",
+        "localField": "productId",
+        "foreignField": "_id",
+        "as": "productDetails"
+      }
+    },
+    {
+      "$unwind": "$productDetails"
+    },
+    {
+      "$group": {
+        "_id": "$customerId",
+        "productId": {
+          "$first": "$productDetails._id"
+        },
+        "name": {
+          "$first": "$customerDetails.name"
+        },
+        "location": {
+          "$first": "$customerDetails.location"
+        },
+        "quantity": {
+          "$first": "$quantity"
+        },
+        "price": {
+          "$first": "$productDetails.price"
+        },
+        "productName": {
+          "$first": "$productDetails.name"
+        },
+        "totalSpent": {
+          "$sum": {
+            "$multiply": [
+              "$quantity",
+              "$productDetails.price"
+            ]
+          }
+        },
+        "orderCount": {
+          "$sum": 1
+        }
+      }
+    },
+    {
+      "$facet": {
+        "customerSpending": [
+          {
+            "$sort": {
+              "totalSpent": -1
+            }
+          },
+          {
+            "$limit": "{{customersLimit}}"
+          },
+          {
+            "$project": {
+              "_id": 1,
+              "name": 1,
+              "location": 1,
+              "totalSpent": 1,
+              "orderCount": 1
+            }
+          }
+        ],
+        "topProducts": [
+          {
+            "$group": {
+              "_id": "$productId",
+              "productName": {
+                "$first": "$productName"
+              },
+              "totalRevenue": {
+                "$sum": {
+                  "$multiply": [
+                    "$quantity",
+                    "$price"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "$sort": {
+              "totalRevenue": -1
+            }
+          },
+          {
+            "$limit": "{{productsLimit}}"
+          }
+        ]
+      }
+    },
+    {
+      "$replaceWith": {
+        "__value": "$$ROOT"
+      }
+    }
+  ]
+}

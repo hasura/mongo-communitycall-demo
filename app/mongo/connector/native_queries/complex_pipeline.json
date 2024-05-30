@@ -1,0 +1,223 @@
+{
+  "name": "ComplexPipeline",
+  "representation": "function",
+  "inputCollection": "orders",
+  "description": "Calculate the total amount spent by each customer in the last 6 months, list the top 5 products by revenue, and include customer details and order counts.",
+  "arguments": {},
+  "resultDocumentType": "ComplexPipeline",
+  "objectTypes": {
+    "CustomerSpending": {
+      "fields": {
+        "_id": {
+          "type": {
+            "scalar": "string"
+          }
+        },
+        "name": {
+          "type": {
+            "scalar": "string"
+          }
+        },
+        "location": {
+          "type": {
+            "scalar": "string"
+          }
+        },
+        "totalSpent": {
+          "type": {
+            "scalar": "int"
+          }
+        },
+        "orderCount": {
+          "type": {
+            "scalar": "int"
+          }
+        }
+      }
+    },
+    "TopProducts": {
+      "fields": {
+        "_id": {
+          "type": {
+            "scalar": "string"
+          }
+        },
+        "productName": {
+          "type": {
+            "scalar": "string"
+          }
+        },
+        "totalRevenue": {
+          "type": {
+            "scalar": "Int"
+          }
+        }
+      }
+    },
+    "CustomerSpendingWTopProduct": {
+      "fields": {
+        "customerSpending": {
+          "type": {
+            "arrayOf": {
+              "object": "CustomerSpending"
+            }
+          }
+        },
+        "topProducts": {
+          "type": {
+            "arrayOf": {
+              "object": "TopProducts"
+            }
+          }
+        }
+      }
+    },
+    "ComplexPipeline": {
+      "fields": {
+        "__value": {
+          "type": {
+            "object": "CustomerSpendingWTopProduct"
+          }
+        }
+      }
+    }
+  },
+  "pipeline": [
+    {
+      "$addFields": {
+        "dateXMonthsAgo": {
+          "$dateSubtract": {
+            "startDate": "$$NOW",
+            "unit": "month",
+            "amount": 1
+          }
+        },
+        "orderDateConverted": {
+          "$dateFromString": {
+            "dateString": "$orderDate"
+          }
+        }
+      }
+    },
+    {
+      "$match": {
+        "$expr": {
+          "$gte": [
+            "$orderDateConverted",
+            "$dateXMonthsAgo"
+          ]
+        }
+      }
+    },
+    {
+      "$lookup": {
+        "from": "customers",
+        "localField": "customerId",
+        "foreignField": "_id",
+        "as": "customerDetails"
+      }
+    },
+    {
+      "$unwind": "$customerDetails"
+    },
+    {
+      "$lookup": {
+        "from": "products",
+        "localField": "productId",
+        "foreignField": "_id",
+        "as": "productDetails"
+      }
+    },
+    {
+      "$unwind": "$productDetails"
+    },
+    {
+      "$group": {
+        "_id": "$customerId",
+        "productId": {
+          "$first": "$productDetails._id"
+        },
+        "name": {
+          "$first": "$customerDetails.name"
+        },
+        "location": {
+          "$first": "$customerDetails.location"
+        },
+        "quantity": {
+          "$first": "$quantity"
+        },
+        "price": {
+          "$first": "$productDetails.price"
+        },
+        "productName": {
+          "$first": "$productDetails.name"
+        },
+        "totalSpent": {
+          "$sum": {
+            "$multiply": [
+              "$quantity",
+              "$productDetails.price"
+            ]
+          }
+        },
+        "orderCount": {
+          "$sum": 1
+        }
+      }
+    },
+    {
+      "$facet": {
+        "customerSpending": [
+          {
+            "$sort": {
+              "totalSpent": -1
+            }
+          },
+          {
+            "$limit": 10
+          },
+          {
+            "$project": {
+              "_id": 1,
+              "name": 1,
+              "location": 1,
+              "totalSpent": 1,
+              "orderCount": 1
+            }
+          }
+        ],
+        "topProducts": [
+          {
+            "$group": {
+              "_id": "$productId",
+              "productName": {
+                "$first": "$productName"
+              },
+              "totalRevenue": {
+                "$sum": {
+                  "$multiply": [
+                    "$quantity",
+                    "$price"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "$sort": {
+              "totalRevenue": -1
+            }
+          },
+          {
+            "$limit": 5
+          }
+        ]
+      }
+    },
+    {
+      "$replaceWith": {
+        "__value": "$$ROOT"
+      }
+    }
+  ]
+}

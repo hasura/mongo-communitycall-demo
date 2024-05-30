@@ -1,0 +1,722 @@
+kind: DataConnectorLink
+version: v1
+definition:
+  name: mongo
+  url:
+    Fn::ManifestRef: mongo
+  schema:
+    version: v0.1
+    schema:
+      scalar_types:
+        BinData:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: BinData
+        Bool:
+          representation:
+            type: boolean
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Bool
+        Date:
+          representation:
+            type: timestamp
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: named
+                name: Date
+            min:
+              result_type:
+                type: named
+                name: Date
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: Date
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: Date
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: Date
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: Date
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Date
+        DbPointer:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: DbPointer
+        Decimal:
+          representation:
+            type: bigdecimal
+          aggregate_functions:
+            avg:
+              result_type:
+                type: named
+                name: Decimal
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: named
+                name: Decimal
+            min:
+              result_type:
+                type: named
+                name: Decimal
+            sum:
+              result_type:
+                type: named
+                name: Decimal
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: Decimal
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: Decimal
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: Decimal
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: Decimal
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Decimal
+        Double:
+          representation:
+            type: float64
+          aggregate_functions:
+            avg:
+              result_type:
+                type: named
+                name: Double
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: named
+                name: Double
+            min:
+              result_type:
+                type: named
+                name: Double
+            sum:
+              result_type:
+                type: named
+                name: Double
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: Double
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: Double
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: Double
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: Double
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Double
+        ExtendedJSON:
+          representation:
+            type: json
+          aggregate_functions: {}
+          comparison_operators: {}
+        Int:
+          representation:
+            type: int32
+          aggregate_functions:
+            avg:
+              result_type:
+                type: named
+                name: Int
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: named
+                name: Int
+            min:
+              result_type:
+                type: named
+                name: Int
+            sum:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: Int
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: Int
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: Int
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: Int
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Int
+        Javascript:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators: {}
+        JavascriptWithScope:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators: {}
+        Long:
+          representation:
+            type: int64
+          aggregate_functions:
+            avg:
+              result_type:
+                type: named
+                name: Long
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: named
+                name: Long
+            min:
+              result_type:
+                type: named
+                name: Long
+            sum:
+              result_type:
+                type: named
+                name: Long
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: Long
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: Long
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: Long
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: Long
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Long
+        MaxKey:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: MaxKey
+        MinKey:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: MinKey
+        "Null":
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: "Null"
+        ObjectId:
+          representation:
+            type: string
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: ObjectId
+        Regex:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators: {}
+        String:
+          representation:
+            type: string
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: named
+                name: String
+            min:
+              result_type:
+                type: named
+                name: String
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _iregex:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _regex:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+        Symbol:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Symbol
+        Timestamp:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: named
+                name: Timestamp
+            min:
+              result_type:
+                type: named
+                name: Timestamp
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: Timestamp
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: Timestamp
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: Timestamp
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: Timestamp
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Timestamp
+        Undefined:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Undefined
+      object_types:
+        ComplexPipeline:
+          fields:
+            __value:
+              type:
+                type: named
+                name: CustomerSpendingWTopProduct
+        CustomerSpending:
+          fields:
+            _id:
+              type:
+                type: named
+                name: String
+            location:
+              type:
+                type: named
+                name: String
+            name:
+              type:
+                type: named
+                name: String
+            orderCount:
+              type:
+                type: named
+                name: Int
+            totalSpent:
+              type:
+                type: named
+                name: Int
+        CustomerSpendingWTopProduct:
+          fields:
+            customerSpending:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: CustomerSpending
+            topProducts:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: TopProducts
+        SimplePipeline:
+          fields:
+            _id:
+              type:
+                type: named
+                name: String
+            totalQuantity:
+              type:
+                type: named
+                name: Int
+        TopProducts:
+          fields:
+            _id:
+              type:
+                type: named
+                name: String
+            productName:
+              type:
+                type: named
+                name: String
+            totalRevenue:
+              type:
+                type: named
+                name: Int
+        customers:
+          fields:
+            _id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            age:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            joinDate:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            location:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+        orders:
+          fields:
+            _id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            customerId:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            orderDate:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            productId:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            quantity:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+        products:
+          fields:
+            _id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            price:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+      collections:
+        - name: SimplePipeline
+          description: Calculate the total quantity of products ordered by each customer
+          arguments: {}
+          type: SimplePipeline
+          uniqueness_constraints: {}
+          foreign_keys: {}
+        - name: customers
+          arguments: {}
+          type: customers
+          uniqueness_constraints: {}
+          foreign_keys: {}
+        - name: orders
+          arguments: {}
+          type: orders
+          uniqueness_constraints: {}
+          foreign_keys: {}
+        - name: products
+          arguments: {}
+          type: products
+          uniqueness_constraints: {}
+          foreign_keys: {}
+      functions:
+        - name: ComplexPipeline
+          description: Calculate the total amount spent by each customer in the last 6 months, list the top 5 products by revenue, and include customer details and order counts.
+          arguments: {}
+          result_type:
+            type: named
+            name: CustomerSpendingWTopProduct
+        - name: ComplexPipelineWArgs
+          description: Calculate the total amount spent by each customer in the last X months, list the top X products by revenue, and include customer details and order counts.
+          arguments:
+            customersLimit:
+              type:
+                type: named
+                name: Int
+            monthsAgo:
+              type:
+                type: named
+                name: Int
+            productsLimit:
+              type:
+                type: named
+                name: Int
+          result_type:
+            type: named
+            name: CustomerSpendingWTopProduct
+      procedures: []
+    capabilities:
+      version: 0.1.2
+      capabilities:
+        query:
+          aggregates: {}
+          variables: {}
+          explain: {}
+        mutation: {}
+        relationships: {}

@@ -1,0 +1,123 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Orders
+  fields:
+    - name: id
+      type: String
+    - name: customerId
+      type: String
+    - name: orderDate
+      type: String
+    - name: productId
+      type: String
+    - name: quantity
+      type: Int
+  graphql:
+    typeName: App_Orders
+    inputTypeName: App_OrdersInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: orders
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        customerId:
+          column:
+            name: customerId
+        orderDate:
+          column:
+            name: orderDate
+        productId:
+          column:
+            name: productId
+        quantity:
+          column:
+            name: quantity
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Orders
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - customerId
+          - orderDate
+          - productId
+          - quantity
+
+---
+kind: ObjectBooleanExpressionType
+version: v1
+definition:
+  name: OrdersBoolExp
+  objectType: Orders
+  dataConnectorName: mongo
+  dataConnectorObjectType: orders
+  comparableFields:
+    - fieldName: id
+      operators:
+        enableAll: true
+    - fieldName: customerId
+      operators:
+        enableAll: true
+    - fieldName: orderDate
+      operators:
+        enableAll: true
+    - fieldName: productId
+      operators:
+        enableAll: true
+    - fieldName: quantity
+      operators:
+        enableAll: true
+  graphql:
+    typeName: App_OrdersBoolExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: Orders
+  objectType: Orders
+  source:
+    dataConnectorName: mongo
+    collection: orders
+  filterExpressionType: OrdersBoolExp
+  orderableFields:
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: customerId
+      orderByDirections:
+        enableAll: true
+    - fieldName: orderDate
+      orderByDirections:
+        enableAll: true
+    - fieldName: productId
+      orderByDirections:
+        enableAll: true
+    - fieldName: quantity
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: app_orders
+    selectUniques: []
+    orderByExpressionType: App_OrdersOrderBy
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Orders
+  permissions:
+    - role: admin
+      select:
+        filter: null
+

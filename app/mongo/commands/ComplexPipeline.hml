@@ -1,0 +1,151 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CustomerSpending
+  fields:
+    - name: id
+      type: String!
+    - name: location
+      type: String!
+    - name: name
+      type: String!
+    - name: orderCount
+      type: Int!
+    - name: totalSpent
+      type: Int!
+  graphql:
+    typeName: App_CustomerSpending
+    inputTypeName: App_CustomerSpendingInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: CustomerSpending
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        location:
+          column:
+            name: location
+        name:
+          column:
+            name: name
+        orderCount:
+          column:
+            name: orderCount
+        totalSpent:
+          column:
+            name: totalSpent
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CustomerSpending
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - location
+          - name
+          - orderCount
+          - totalSpent
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: TopProducts
+  fields:
+    - name: id
+      type: String!
+    - name: productName
+      type: String!
+    - name: totalRevenue
+      type: Int!
+  graphql:
+    typeName: App_TopProducts
+    inputTypeName: App_TopProductsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: TopProducts
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        productName:
+          column:
+            name: productName
+        totalRevenue:
+          column:
+            name: totalRevenue
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: TopProducts
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - productName
+          - totalRevenue
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CustomerSpendingWTopProduct
+  fields:
+    - name: customerSpending
+      type: "[CustomerSpending!]!"
+    - name: topProducts
+      type: "[TopProducts!]!"
+  graphql:
+    typeName: App_CustomerSpendingWTopProduct
+    inputTypeName: App_CustomerSpendingWTopProductInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: CustomerSpendingWTopProduct
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CustomerSpendingWTopProduct
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - customerSpending
+          - topProducts
+
+---
+kind: Command
+version: v1
+definition:
+  name: ComplexPipeline
+  outputType: CustomerSpendingWTopProduct!
+  source:
+    dataConnectorName: mongo
+    dataConnectorCommand:
+      function: ComplexPipeline
+  graphql:
+    rootFieldName: app_complexPipeline
+    rootFieldKind: Query
+  description: Calculate the total amount spent by each customer in the last 6
+    months, list the top 5 products by revenue, and include customer details and
+    order counts.
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: ComplexPipeline
+  permissions:
+    - role: admin
+      allowExecution: true
+

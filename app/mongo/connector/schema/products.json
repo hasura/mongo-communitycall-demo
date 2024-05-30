@@ -1,0 +1,35 @@
+{
+  "name": "products",
+  "collections": {
+    "products": {
+      "type": "products"
+    }
+  },
+  "objectTypes": {
+    "products": {
+      "fields": {
+        "_id": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "name": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "price": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        }
+      }
+    }
+  }
+}
